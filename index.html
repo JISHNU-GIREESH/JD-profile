@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Jishnu Gireesh, a Data Science student specializing in analytics and machine learning">
+    <meta name="keywords" content="data science, portfolio, Jishnu Gireesh, analytics, machine learning">
+    <meta name="author" content="Jishnu Gireesh">
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="Jishnu Gireesh | Data Science Portfolio">
+    <meta property="og:description" content="Transforming raw data into meaningful insights through advanced analytics and machine learning">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80">
+    <meta property="og:url" content="https://jishnu-gireesh.netlify.app">
+    <meta property="og:type" content="website">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jishnu-gireesh.netlify.app">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Jishnu Gireesh | Data Science Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        p { font-size: clamp(1rem, 2vw, 1.2rem); }
+
+        /* Layout */
+        section {
+            padding: 6rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 27, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #00d4ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        .nav-links a:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #00d4ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        #home {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(13, 27, 42, 0.7), rgba(27, 38, 59, 0.7)), 
+                        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #ffffff;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        .typed-text {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: #00d4ff;
+            margin: 1rem 0;
+            min-height: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        .hero-content p {
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1.5s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 2s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #00d4ff;
+            color: #0D1B2A;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #00b4d8;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        .social-links {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 2.5s;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00d4ff;
+            transform: translateY(-3px);
+        }
+
+        .social-links a:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        /* About Section */
+        #about {
+            background-color: #1B263B;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease;
+        }
+
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content h2 {
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .about-content h3 {
+            margin: 1.5rem 0 1rem;
+            color: #00d4ff;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            color: #cccccc;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background-color: #2A3B5A;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: #00d4ff;
+            color: #0D1B2A;
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: #0D1B2A;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #00d4ff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: #2A3B5A;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .project-info p {
+            margin-bottom: 1rem;
+            color: #cccccc;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background-color: #1B263B;
+            color: #00d4ff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-links a:first-child {
+            background-color: #00d4ff;
+            color: #0D1B2A;
+        }
+
+        .project-links a:first-child:hover {
+            background-color: #00b4d8;
+        }
+
+        .project-links a:last-child {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+        }
+
+        .project-links a:last-child:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .project-links a:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        /* Experience Section */
+        #experience {
+            background-color: #1B263B;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: #00d4ff;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            padding-left: 3rem;
+            text-align: left;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+            padding-right: 3rem;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #00d4ff;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            width: calc(50% - 20px);
+            padding: 1.5rem;
+            background-color: #2A3B5A;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: #00d4ff;
+            color: #0D1B2A;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .timeline-content h4 {
+            margin-bottom: 1rem;
+            color: #cccccc;
+            font-weight: 500;
+        }
+
+        .timeline-content p {
+            color: #cccccc;
+        }
+
+        /* Education Section */
+        #education {
+            background-color: #0D1B2A;
+        }
+
+        .education-item {
+            background-color: #2A3B5A;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .education-title h3 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-title h4 {
+            color: #00d4ff;
+            font-weight: 500;
+        }
+
+        .education-date {
+            color: #cccccc;
+        }
+
+        .education-details p {
+            color: #cccccc;
+            margin-bottom: 0.5rem;
+        }
+
+/* Gallery Section */
+#gallery {
+    background-color: #1B263B;
+    overflow: hidden;
+    padding: 6rem 2rem;
+}
+
+/* Marquee Container */
+.gallery-marquee {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Scroll Track */
+.gallery-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: marquee-scroll 45s linear infinite;
+}
+
+/* Pause animation on hover */
+.gallery-marquee:hover .gallery-track {
+    animation-play-state: paused;
+}
+
+/* Individual Card */
+.gallery-card {
+    flex: 0 0 320px;
+    min-width: 320px;
+    background-color: #2A3B5A;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* Hover Tilt & Lift Effect */
+.gallery-card:hover {
+    transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+    box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
+}
+
+/* Staggered Fade-In Animation (on load) */
+.gallery-card:nth-child(1) { animation: fadeInUp 1s ease-out forwards 0.2s; }
+.gallery-card:nth-child(2) { animation: fadeInUp 1s ease-out forwards 0.3s; }
+.gallery-card:nth-child(3) { animation: fadeInUp 1s ease-out forwards 0.4s; }
+.gallery-card:nth-child(4) { animation: fadeInUp 1s ease-out forwards 0.5s; }
+.gallery-card:nth-child(5) { animation: fadeInUp 1s ease-out forwards 0.6s; }
+.gallery-card:nth-child(6) { animation: fadeInUp 1s ease-out forwards 0.7s; }
+.gallery-card:nth-child(7) { animation: fadeInUp 1s ease-out forwards 0.8s; }
+
+/* Image Container */
+.gallery-img {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Image Zoom on Hover */
+.gallery-card:hover .gallery-img img {
+    transform: scale(1.15);
+}
+
+/* Overlay Icon */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 212, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay i {
+    color: #ffffff;
+    font-size: 3rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Info */
+.gallery-info {
+    padding: 1.5rem;
+}
+
+.gallery-info h3 {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.gallery-info p {
+    margin-bottom: 1rem;
+    color: #cccccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.gallery-info a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #00d4ff;
+    color: #0D1B2A;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.gallery-info a:hover {
+    background-color: #00b4d8;
+    box-shadow: 0 4px 10px rgba(0, 212, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.gallery-info a:focus {
+    outline: 2px solid #00d4ff;
+    outline-offset: 2px;
+}
+
+/* Badges */
+.gallery-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.gallery-badge {
+    background-color: #1B263B;
+    color: #00d4ff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.gallery-badge i {
+    font-size: 0.9rem;
+}
+
+/* Marquee Animation */
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .gallery-card {
+        flex: 0 0 280px;
+        min-width: 280px;
+    }
+    .gallery-track {
+        animation-duration: 55s;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-track {
+        animation-duration: 65s;
+        gap: 1.5rem;
+    }
+    .gallery-card {
+        flex: 0 0 260px;
+        min-width: 260px;
+    }
+    .gallery-info h3 {
+        font-size: 1.1rem;
+    }
+    .gallery-info p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-track {
+        gap: 1rem;
+    }
+    .gallery-card {
+        flex: 0 0 240px;
+        min-width: 240px;
+    }
+    .gallery-overlay i {
+        font-size: 2.5rem;
+    }
+}
+
+.gallery-card.focused {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg) !important;
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 27, 42, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            background-color: #2A3B5A;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            padding: 1rem;
+            width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .carousel {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            display: flex;
+            width: 100%;
+            height: 80vh;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-item.active {
+            display: flex;
+        }
+
+        .carousel-item img {
+            max-width: 90%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 5px;
+            animation: zoomIn 0.3s ease-out;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-nav button {
+            background-color: rgba(0, 212, 255, 0.7);
+            color: #0D1B2A;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav button:hover {
+            background-color: #00b4d8;
+        }
+
+        .carousel-nav button:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #cccccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: #00d4ff;
+        }
+
+        .carousel-dot:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background-color: #00d4ff;
+            color: #0D1B2A;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background-color: #00b4d8;
+            transform: rotate(90deg);
+        }
+
+        .modal-close:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        /* Animation for Image Enhancement */
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #0D1B2A;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info h3, .contact-form h3 {
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            color: #cccccc;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            margin-top: 0.3rem;
+        }
+
+        .contact-text h4 {
+            color: #ffffff;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-text a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: #00d4ff;
+        }
+
+        .contact-text a:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .form-control {
+            padding: 0.8rem 1rem;
+            background-color: #1B263B;
+            border: 1px solid #2A3B5A;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            align-self: flex-start;
+            padding: 0.8rem 2rem;
+            background-color: #00d4ff;
+            color: #0D1B2A;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #00b4d8;
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0D1B2A;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #2A3B5A;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00d4ff;
+        }
+
+        .footer-links a:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        .copyright {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: #00d4ff;
+            color: #0D1B2A;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #00b4d8;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top:focus {
+            outline: 2px solid #00d4ff;
+            outline-offset: 2px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+                padding-left: 2rem;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .modal-content {
+                max-width: 95%;
+                max-height: 85vh;
+            }
+
+            .carousel-item img {
+                max-height: 70vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: #0D1B2A;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: all 0.5s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-overlay i {
+                font-size: 2.5rem;
+            }
+
+            .modal-close {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .carousel-item img {
+                max-height: 65vh;
+            }
+
+            .carousel-nav button {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 4rem 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .typed-text {
+                font-size: 1.3rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .education-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .carousel-item img {
+                max-height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Jishnu Gireesh <span>.</span></a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-content">
+            <h1>Hi, I'm Jishnu Gireesh</h1>
+            <div class="typed-text">Data Science & Big Data Analyst</div>
+            <p>Transforming raw data into meaningful insights through advanced analytics and machine learning.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/JISHNU-GIREESH" target="_blank" rel="noopener" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/jishnu-gireesh-nk-41a4a4292/" target="_blank" rel="noopener" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/yourusername" target="_blank" rel="noopener" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.kaggle.com/jishnugireeshnk" target="_blank" rel="noopener" aria-label="Kaggle profile"><i class="fab fa-kaggle"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="Images/about.jpg" alt="Jishnu Gireesh, Data Science Student" loading="lazy">
+                </div>
+                <div class="about-content">
+                    <h2>About Me</h2>
+                    <h3>Data Science Student at Yenepoya University</h3>
+                    <p>I'm a passionate data science student currently pursuing my BCA in Data Science and Big Data Analytics at Yenepoya University. I specialize in transforming complex datasets into actionable insights through statistical analysis, machine learning, and data visualization.</p>
+                    <p>My approach combines technical expertise with business acumen to solve real-world problems. I'm particularly interested in predictive modeling, natural language processing, and big data technologies.</p>
+                    <h3>Technical Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PySpark</span>
+                        <span class="skill-tag">Hadoop</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Big Data</span>
+                    </div>
+                    <a href="Jishnu_Gireesh_Resume.pdf" class="btn btn-primary" style="margin-top: 1.5rem;" download="Jishnu_Gireesh_Resume.pdf">Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Data Science Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="HR Data Analyst Dashboard" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>HR Data Analyst Dashboard</h3>
+                        <p>Developed an interactive HR analytics dashboard using Tableau to visualize workforce performance, retention, and key HR metrics.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">Excel</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://public.tableau.com/app/profile/jishnu.gireesh.nk/vizzes" target="_blank" rel="noopener noreferrer" aria-label="View HR Dashboard on Tableau"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            <a href="https://github.com/JISHNU-GIREESH/hr-analytics-dashboard" target="_blank" aria-label="HR Dashboard GitHub repository"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80" alt="Big Data Project" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Big Data Analysis with PySpark</h3>
+                        <p>Processed and analyzed 10GB of retail data using PySpark on a Hadoop cluster, identifying key sales trends and customer segments.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PySpark</span>
+                            <span class="tech-tag">Hadoop</span>
+                            <span class="tech-tag">Hive</span>
+                            <span class="tech-tag">Big Data</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" aria-label="View Big Data Project (placeholder)"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            <a href="https://github.com/JISHNU-GIREESH/retail-data-analysis" target="_blank" aria-label="Retail Data Analysis GitHub repository"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="NLP Project" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Sentiment Analysis on Product Reviews</h3>
+                        <p>Built an NLP model to classify product reviews with 92% accuracy using BERT and LSTM neural networks.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">BERT</span>
+                            <span class="tech-tag">NLTK</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" aria-label="View NLP Project (placeholder)"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            <a href="https://github.com/JISHNU-GIREESH/sentiment-analysis" target="_blank" aria-label="Sentiment Analysis GitHub repository"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+            </div>
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jun 2023 - Aug 2023</span>
+                        <h3>Data Science Intern</h3>
+                        <h4>Analytics Solutions Pvt. Ltd.</h4>
+                        <p>Developed predictive models for customer segmentation and implemented data pipelines to process large datasets. Created interactive dashboards to visualize key business metrics.</p>
+                    </div>
+                </div>
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jan 2023 - May 2023</span>
+                        <h3>Research Assistant</h3>
+                        <h4>Yenepoya University</h4>
+                        <p>Assisted professors in research on machine learning applications in healthcare. Cleaned and preprocessed medical datasets for analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-title">
+                        <h3>Bachelor of Computer Applications (BCA)</h3>
+                        <h4>Data Science & Big Data Analytics</h4>
+                    </div>
+                    <div class="education-date">2023 - 2026</div>
+                </div>
+                <div class="education-details">
+                    <p>Yenepoya Deemed to be University, Mangalore</p>
+                    <p>CGPA: 8.5/10 (Current)</p>
+                    <p>Relevant Coursework: Big Data Analytics, Data Science, Database Systems, Frontend Developer</p>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-title">
+                        <h3>Higher Secondary Education</h3>
+                        <h4>Computer Science</h4>
+                    </div>
+                    <div class="education-date">2021 - 2023</div>
+                </div>
+                <div class="education-details">
+                    <p>State Board, Kerala</p>
+                    <p>Percentage: 98%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Gallery Section -->
+<section id="gallery">
+    <div class="container">
+        <div class="section-title">
+            <h2>Gallery</h2>
+        </div>
+
+        <!-- Marquee Container -->
+        <div class="gallery-marquee">
+            <div class="gallery-track">
+                <!-- === ORIGINAL SET (7 CARDS) === -->
+
+                <!-- Achievement 1: Best NSS Volunteer -->
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/nss-volunteer-1.jpg" alt="Best NSS Volunteer Award" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-users"></i> NSS</span>
+                            <span class="gallery-badge"><i class="fas fa-award"></i> Volunteer</span>
+                        </div>
+                        <h3>Best NSS Volunteer Award</h3>
+                        <p>Recognized as the Best NSS Volunteer for outstanding community service and leadership during pre-university activities at GVHSS Meenchahanda in 2023.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/nss-volunteer-1.jpg", "Images/nss-volunteer-2.jpg","Images/nss-volunteer-3.jpg","Images/nss-volunteer-4.jpg","Images/nss-volunteer-5.jpg","Images/nss-volunteer-6.jpg"]' 
+                           data-alts='["Best NSS Volunteer Award Image 1", "Best NSS Volunteer Award Image 2", "Best NSS Volunteer Award Image 3", "Best NSS Volunteer Award Image 4", "Best NSS Volunteer Award Image 5", "Best NSS Volunteer Award Image 6"]' 
+                           aria-label="View Best NSS Volunteer Award Images">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Achievement 2: Best NSS Presentation Award -->
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/nss-presentation-1.jpg" alt="Best NSS Presentation Award 2023" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-chalkboard-user"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-users"></i> NSS</span>
+                            <span class="gallery-badge"><i class="fas fa-star"></i> Presentation</span>
+                        </div>
+                        <h3>Best NSS Presentation Award 2023</h3>
+                        <p>Awarded Best Presentation at the NSS Calicut District event in 2023 for delivering an impactful and engaging presentation on community initiatives.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/nss-presentation-1.jpg", "Images/nss-presentation-2.jpg"]' 
+                           data-alts='["Best NSS Presentation Award Image 1", "Best NSS Presentation Award Image 2"]' 
+                           aria-label="View Best NSS Presentation Award Images">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Achievement 3: IT Quiz Leadership -->
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/it-quiz-1.jpg" alt="IT Quiz Leadership at Yenepoya College" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-brain"></i> IT Quiz</span>
+                            <span class="gallery-badge"><i class="fas fa-user-tie"></i> Leadership</span>
+                        </div>
+                        <h3>IT Quiz Leadership - YENIXA 2.0</h3>
+                        <p>Led the organization and conduction of the inter-college IT Quiz event during YENIXA 2.0 at Yenepoya Institute of Arts Science Commerce and Management.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/it-quiz-1.jpg", "Images/it-quiz-2.jpg", "Images/it-quiz-3.jpg","Images/it-quiz-4.jpg","Images/it-quiz-5.jpg","Images/it-quiz-6.jpg"]' 
+                           data-alts='["IT Quiz Leadership Image 1", "IT Quiz Leadership Image 2", "IT Quiz Leadership Image 3", "IT Quiz Leadership Image 4", "IT Quiz Leadership Image 5", "IT Quiz Leadership Image 6"]' 
+                           aria-label="View IT Quiz Leadership Images">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Achievement 4: Inter-College Fest Team Lead - Winner -->
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/inter-college-fest-1.jpg" alt="Inter-College Fest Team Lead" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-trophy"></i> Team Lead</span>
+                            <span class="gallery-badge"><i class="fas fa-star"></i> Winner</span>
+                        </div>
+                        <h3>Inter-College Fest Team Lead - Winner</h3>
+                        <p>Represented Yenepoya Institute as team lead and secured 1st place in Sharada Inter-College Fest.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/inter-college-fest-1.jpg", "Images/inter-college-fest-2.jpg","Images/inter-college-fest-3.jpg","Images/inter-college-fest-4.jpg","Images/inter-college-fest-5.jpg"]' 
+                           data-alts='["Inter-College Fest Image 1", "Inter-College Fest Image 2", "Inter-College Fest Image 3", "Inter-College Fest Image 4", "Inter-College Fest Image 5"]' 
+                           aria-label="View Inter-College Fest Team Lead Images">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Achievement 5: Inter-College Fest Team Lead - Runners-Up -->
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/inter-college-1.jpg" alt="Inter-College Fest Team Lead" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-trophy"></i> Team Lead</span>
+                            <span class="gallery-badge"><i class="fas fa-star"></i> Runner-Up</span>
+                        </div>
+                        <h3>Inter-College Fest Team Lead - Runners-Up</h3>
+                        <p>Led team to 2nd place in Excel 4.0 Inter-College Fest at Srinivasa Institute.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/inter-college-1.jpg", "Images/inter-college-2.jpg"]' 
+                           data-alts='["Inter Fest Image 1", "Inter Fest Image 2"]' 
+                           aria-label="View Inter-College Fest Team Lead Images">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Achievement 6: Resume & LinkedIn Workshop -->
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/resume-linkedin-class-1.jpg" alt="Resume & LinkedIn Class for First-Year Students" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                            <span class="gallery-badge"><i class="fas fa-user-tie"></i> Mentorship</span>
+                        </div>
+                        <h3>Resume & LinkedIn Workshop Mentor</h3>
+                        <p>Organized and led “Job Essentials” workshop under YENOVA IT Club, guiding first-year students on LinkedIn and ATS-friendly resumes.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/resume-linkedin-class-1.jpg", "Images/resume-linkedin-class-2.jpg","Images/resume-linkedin-class-3.jpg","Images/resume-linkedin-class-4.jpg","Images/resume-linkedin-class-5.jpg","Images/resume-linkedin-class-6.jpg","Images/resume-linkedin-class-7.jpg","Images/resume-linkedin-class-8.jpg"]' 
+                           data-alts='["Resume & LinkedIn Class Image 1", "Resume & LinkedIn Class Image 2", "Resume & LinkedIn Class Image 3", "Resume & LinkedIn Class Image 4", "Resume & LinkedIn Class Image 5", "Resume & LinkedIn Class Image 6", "Resume & LinkedIn Class Image 7", "Resume & LinkedIn Class Image 8"]' 
+                           aria-label="View Resume & LinkedIn Class Images">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Achievement 7: BNI Expo Volunteer -->
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/bni-expo-1.jpg" alt="BNI Expo Volunteer Mangalore" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-users"></i> Volunteer</span>
+                            <span class="gallery-badge"><i class="fas fa-briefcase"></i> BNI Expo</span>
+                        </div>
+                        <h3>BNI Big Brands Expo 2025 Volunteer</h3>
+                        <p>Volunteered at BNI Big Brands Expo 2025 in Mangalore, contributing to event coordination and networking with industry leaders.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/bni-expo-1.jpg", "Images/bni-expo-2.jpg", "Images/bni-expo-3.jpg"]' 
+                           data-alts='["BNI Expo Volunteer Image 1", "BNI Expo Volunteer Image 2", "BNI Expo Volunteer Image 3"]' 
+                           aria-label="View BNI Expo Volunteer Images">View Details</a>
+                    </div>
+                </div>
+
+                <!-- === DUPLICATED SET FOR SEAMLESS LOOP === -->
+                <!-- (Exact copy of above 7 cards) -->
+
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/nss-volunteer-1.jpg" alt="Best NSS Volunteer Award" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-users"></i> NSS</span>
+                            <span class="gallery-badge"><i class="fas fa-award"></i> Volunteer</span>
+                        </div>
+                        <h3>Best NSS Volunteer Award</h3>
+                        <p>Recognized as the Best NSS Volunteer for outstanding community service and leadership during pre-university activities at GVHSS Meenchahanda in 2023.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/nss-volunteer-1.jpg", "Images/nss-volunteer-2.jpg","Images/nss-volunteer-3.jpg","Images/nss-volunteer-4.jpg","Images/nss-volunteer-5.jpg","Images/nss-volunteer-6.jpg"]' 
+                           data-alts='["Best NSS Volunteer Award Image 1", "Best NSS Volunteer Award Image 2", "Best NSS Volunteer Award Image 3", "Best NSS Volunteer Award Image 4", "Best NSS Volunteer Award Image 5", "Best NSS Volunteer Award Image 6"]' 
+                           aria-label="View Best NSS Volunteer Award Images">View Details</a>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/nss-presentation-1.jpg" alt="Best NSS Presentation Award 2023" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-presentation"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-users"></i> NSS</span>
+                            <span class="gallery-badge"><i class="fas fa-star"></i> Presentation</span>
+                        </div>
+                        <h3>Best NSS Presentation Award 2023</h3>
+                        <p>Awarded Best Presentation at the NSS Calicut District event in 2023 for delivering an impactful and engaging presentation on community initiatives.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/nss-presentation-1.jpg", "Images/nss-presentation-2.jpg"]' 
+                           data-alts='["Best NSS Presentation Award Image 1", "Best NSS Presentation Award Image 2"]' 
+                           aria-label="View Best NSS Presentation Award Images">View Details</a>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/it-quiz-1.jpg" alt="IT Quiz Leadership at Yenepoya College" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-brain"></i> IT Quiz</span>
+                            <span class="gallery-badge"><i class="fas fa-user-tie"></i> Leadership</span>
+                        </div>
+                        <h3>IT Quiz Leadership - YENIXA 2.0</h3>
+                        <p>Led the organization and conduction of the inter-college IT Quiz event during YENIXA 2.0 at Yenepoya Institute of Arts Science Commerce and Management.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/it-quiz-1.jpg", "Images/it-quiz-2.jpg", "Images/it-quiz-3.jpg","Images/it-quiz-4.jpg","Images/it-quiz-5.jpg","Images/it-quiz-6.jpg"]' 
+                           data-alts='["IT Quiz Leadership Image 1", "IT Quiz Leadership Image 2", "IT Quiz Leadership Image 3", "IT Quiz Leadership Image 4", "IT Quiz Leadership Image 5", "IT Quiz Leadership Image 6"]' 
+                           aria-label="View IT Quiz Leadership Images">View Details</a>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/inter-college-fest-1.jpg" alt="Inter-College Fest Team Lead" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-trophy"></i> Team Lead</span>
+                            <span class="gallery-badge"><i class="fas fa-star"></i> Winner</span>
+                        </div>
+                        <h3>Inter-College Fest Team Lead - Winner</h3>
+                        <p>Represented Yenepoya Institute as team lead and secured 1st place in Sharada Inter-College Fest.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/inter-college-fest-1.jpg", "Images/inter-college-fest-2.jpg","Images/inter-college-fest-3.jpg","Images/inter-college-fest-4.jpg","Images/inter-college-fest-5.jpg"]' 
+                           data-alts='["Inter-College Fest Image 1", "Inter-College Fest Image 2", "Inter-College Fest Image 3", "Inter-College Fest Image 4", "Inter-College Fest Image 5"]' 
+                           aria-label="View Inter-College Fest Team Lead Images">View Details</a>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/inter-college-1.jpg" alt="Inter-College Fest Team Lead" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-trophy"></i> Team Lead</span>
+                            <span class="gallery-badge"><i class="fas fa-star"></i> Runner-Up</span>
+                        </div>
+                        <h3>Inter-College Fest Team Lead - Runners-Up</h3>
+                        <p>Led team to 2nd place in Excel 4.0 Inter-College Fest at Srinivasa Institute.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/inter-college-1.jpg", "Images/inter-college-2.jpg"]' 
+                           data-alts='["Inter Fest Image 1", "Inter Fest Image 2"]' 
+                           aria-label="View Inter-College Fest Team Lead Images">View Details</a>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/resume-linkedin-class-1.jpg" alt="Resume & LinkedIn Class for First-Year Students" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                            <span class="gallery-badge"><i class="fas fa-user-tie"></i> Mentorship</span>
+                        </div>
+                        <h3>Resume & LinkedIn Workshop Mentor</h3>
+                        <p>Organized and led “Job Essentials” workshop under YENOVA IT Club, guiding first-year students on LinkedIn and ATS-friendly resumes.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/resume-linkedin-class-1.jpg", "Images/resume-linkedin-class-2.jpg","Images/resume-linkedin-class-3.jpg","Images/resume-linkedin-class-4.jpg","Images/resume-linkedin-class-5.jpg","Images/resume-linkedin-class-6.jpg","Images/resume-linkedin-class-7.jpg","Images/resume-linkedin-class-8.jpg"]' 
+                           data-alts='["Resume & LinkedIn Class Image 1", "Resume & LinkedIn Class Image 2", "Resume & LinkedIn Class Image 3", "Resume & LinkedIn Class Image 4", "Resume & LinkedIn Class Image 5", "Resume & LinkedIn Class Image 6", "Resume & LinkedIn Class Image 7", "Resume & LinkedIn Class Image 8"]' 
+                           aria-label="View Resume & LinkedIn Class Images">View Details</a>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-img">
+                        <img src="Images/bni-expo-1.jpg" alt="BNI Expo Volunteer Mangalore" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-badges">
+                            <span class="gallery-badge"><i class="fas fa-users"></i> Volunteer</span>
+                            <span class="gallery-badge"><i class="fas fa-briefcase"></i> BNI Expo</span>
+                        </div>
+                        <h3>BNI Big Brands Expo 2025 Volunteer</h3>
+                        <p>Volunteered at BNI Big Brands Expo 2025 in Mangalore, contributing to event coordination and networking with industry leaders.</p>
+                        <a href="#" class="view-details" 
+                           data-images='["Images/bni-expo-1.jpg", "Images/bni-expo-2.jpg", "Images/bni-expo-3.jpg"]' 
+                           data-alts='["BNI Expo Volunteer Image 1", "BNI Expo Volunteer Image 2", "BNI Expo Volunteer Image 3"]' 
+                           aria-label="View BNI Expo Volunteer Images">View Details</a>
+                    </div>
+                </div>
+
+            </div> <!-- End .gallery-track -->
+        </div> <!-- End .gallery-marquee -->
+    </div>
+</section>
+
+    <!-- Modal for Carousel -->
+    <div class="modal" id="imageModal" tabindex="-1" aria-hidden="true" aria-label="Achievement images carousel">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal"><i class="fas fa-times"></i></button>
+            <div class="carousel">
+                <div class="carousel-inner"></div>
+                <div class="carousel-nav">
+                    <button class="carousel-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="carousel-dots"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out to me for any questions, collaborations, or opportunities. I'm always open to discussing data science projects or research ideas.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Mangalore, Karnataka, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:nkjishnugireesh@gmail.com">nkjishnugireesh@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+917736012424">+91 7736012424</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/JISHNU-GIREESH" target="_blank" rel="noopener" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/jishnu-gireesh-nk-41a4a4292/" target="_blank" rel="noopener" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/yourusername" target="_blank" rel="noopener" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.kaggle.com/jishnugireeshnk" target="_blank" rel="noopener" aria-label="Kaggle profile"><i class="fab fa-kaggle"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <!-- Replace 'your-form-id' with your actual Formspree ID -->
+                    <form action="https://formspree.io/f/mldadwra" method="POST" aria-label="Contact form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/JISHNU-GIREESH" target="_blank" rel="noopener" aria-label="GitHub profile">GitHub</a>
+                <a href="https://www.linkedin.com/in/jishnu-gireesh-nk-41a4a4292/" target="_blank" rel="noopener" aria-label="LinkedIn profile">LinkedIn</a>
+                <a href="https://twitter.com/yourusername" target="_blank" rel="noopener" aria-label="Twitter profile">Twitter</a>
+                <a href="https://www.kaggle.com/jishnugireeshnk" target="_blank" rel="noopener" aria-label="Kaggle profile">Kaggle</a>
+            </div>
+            <p class="copyright">© <script>document.write(new Date().getFullYear())</script> Jishnu Gireesh. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+    <script>
+        // Initialize Typed.js
+        new Typed('.typed-text', {
+            strings: ['Data Science & Big Data Analyst', 'Machine Learning Enthusiast', 'Data Visualization Expert', 'Predictive Modeling Specialist'],
+            typeSpeed: 100,
+            backSpeed: 70,
+            backDelay: 1000,
+            loop: true
+        });
+
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (!this.classList.contains('view-details')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Back to Top Button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('active', window.scrollY > 200);
+        });
+
+// Enhanced Gallery Card 3D Tilt Effect (Works with Marquee + Duplicated Cards)
+document.querySelectorAll('.gallery-card').forEach(card => {
+    let isHovered = false;
+    let animationFrame;
+
+    // Mouse move: Calculate tilt based on cursor position
+    const handleMouseMove = (e) => {
+        if (!isHovered) return;
+
+        cancelAnimationFrame(animationFrame); // Prevent too many repaints
+
+        animationFrame = requestAnimationFrame(() => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateY = ((x - centerX) / centerX) * 12; // Max 12° tilt
+            const rotateX = ((centerY - y) / centerY) * 12; // Inverted Y for natural feel
+
+            card.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) perspective(1000px)`;
+            card.style.transition = 'transform 0.1s ease-out'; // Smooth follow
+        });
+    };
+
+    // Mouse enter: Enable tilt + add lift
+    card.addEventListener('mouseenter', () => {
+        isHovered = true;
+        card.style.transition = 'transform 0.3s ease';
+        card.style.transform = 'translateY(-10px) rotateX(0) rotateY(0) perspective(1000px)';
+    });
+
+    // Mouse move: Apply tilt
+    card.addEventListener('mousemove', handleMouseMove);
+
+    // Mouse leave: Reset with smooth transition
+    card.addEventListener('mouseleave', () => {
+        isHovered = false;
+        cancelAnimationFrame(animationFrame);
+
+        card.style.transition = 'transform 0.4s ease';
+        card.style.transform = 'translateY(0) rotateX(0) rotateY(0) perspective(1000px)';
+    });
+
+    // Optional: Click support (for touch devices or accessibility)
+    card.addEventListener('click', (e) => {
+        // Allow "View Details" links to work
+        if (e.target.closest('.view-details')) return;
+
+        // Optional: Toggle a "focused" state on click (mobile-friendly)
+        card.classList.toggle('focused');
+    });
+});
+
+
+
+        // Modal and Carousel Functionality
+        const modal = document.getElementById('imageModal');
+        const carouselInner = document.querySelector('.carousel-inner');
+        const carouselDots = document.querySelector('.carousel-dots');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+        const modalClose = document.querySelector('.modal-close');
+        const viewDetailsLinks = document.querySelectorAll('.view-details');
+        let currentIndex = 0;
+        let images = [];
+        let alts = [];
+
+        function showImage(index) {
+            const items = document.querySelectorAll('.carousel-item');
+            items.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+            const dots = document.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            currentIndex = index;
+        }
+
+        function updateCarousel() {
+            carouselInner.innerHTML = '';
+            carouselDots.innerHTML = '';
+            images.forEach((src, index) => {
+                const item = document.createElement('div');
+                item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = alts[index];
+                img.loading = 'lazy';
+                item.appendChild(img);
+                carouselInner.appendChild(item);
+
+                const dot = document.createElement('div');
+                dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+                dot.setAttribute('aria-label', `Go to image ${index + 1}`);
+                dot.addEventListener('click', () => {
+                    showImage(index);
+                });
+                carouselDots.appendChild(dot);
+            });
+        }
+
+        viewDetailsLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                images = JSON.parse(link.getAttribute('data-images'));
+                alts = JSON.parse(link.getAttribute('data-alts'));
+                currentIndex = 0;
+                updateCarousel();
+                modal.classList.add('active');
+                document.querySelector('.carousel-item').focus();
+            });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('active')) {
+                if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    showImage(currentIndex);
+                } else if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    showImage(currentIndex);
+                } else if (e.key === 'Escape') {
+                    modal.classList.remove('active');
+                }
+            }
+        });
+
+        const form = document.querySelector("form");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      alert("✅ Thank you! Your message has been sent successfully.");
+      form.reset();
+    } else {
+      alert("❌ Oops! There was a problem submitting your form.");
+    }
+  });
+
+  
+    </script>
+</body>
+</html>
