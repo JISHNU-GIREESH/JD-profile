@@ -2029,11 +2029,22 @@
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Back to Top Button
+// Back to Top Button
         const backToTop = document.querySelector('.back-to-top');
         window.addEventListener('scroll', () => {
             backToTop.classList.toggle('active', window.scrollY > 200);
         });
+
+        // === ADD THIS CODE BLOCK BELOW ===
+        backToTop.addEventListener('click', () => {
+            // This is the missing functionality to scroll to the top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // For smooth animation
+            });
+        });
+        // =================================
+
 
 // Enhanced Gallery Card 3D Tilt Effect (Works with Marquee + Duplicated Cards)
 document.querySelectorAll('.gallery-card').forEach(card => {
