@@ -592,20 +592,29 @@
             margin-bottom: 0.5rem;
         }
 
+
 /* Gallery Section */
 #gallery {
     background-color: #1B263B;
     overflow: hidden;
-    padding: 6rem 2rem;
+    padding: 6rem 0; /* Removed 2rem side padding */
 }
 
-/* Marquee Container */
+/* === FULL WIDTH MARQUEE FIX FOR MOBILE === */
+#gallery .container {
+    padding: 0 !important;
+    max-width: 100% !important;
+}
+
 .gallery-marquee {
     overflow: hidden;
-    width: 100%;
+    width: 100vw;
     position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
-
 /* Scroll Track */
 .gallery-track {
     display: flex;
